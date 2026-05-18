@@ -8,6 +8,113 @@ The goal is simple: **make AI coding agents more consistent, safer, and more use
 
 ---
 
+## Quick links
+
+Start here if you are new to the project:
+
+- [Quickstart](QUICKSTART.md) — installation steps for macOS, Linux, Git Bash, and Windows PowerShell
+- [Core Rules](CORE_RULES.md) — project-safe instruction priority and non-invasive behavior
+- [Skills Index](SKILLS.md) — list of included skills and when to use them
+- [Marketing Kit](MARKETING_KIT.md) — launch posts, pitches, and sharing content
+- [Recommended Topics](TOPICS.md) — GitHub topics and repo description
+- [Contributing](CONTRIBUTING.md) — contribution rules and skill format
+- [Security Policy](SECURITY.md) — security expectations and reporting
+- [License](LICENSE) — MIT license
+
+Project templates:
+
+- [AGENTS.template.md](AGENTS.template.md)
+- [CLAUDE.template.md](CLAUDE.template.md)
+- [CODEX.template.md](CODEX.template.md)
+
+---
+
+## Quick installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/alinaeembaig/caveman-ai-skills.git
+cd caveman-ai-skills
+```
+
+### Install globally for Codex-style agents
+
+#### macOS / Linux / Git Bash
+
+```bash
+bash scripts/install-codex.sh
+```
+
+#### Windows PowerShell
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-codex.ps1
+```
+
+Skills will be copied to:
+
+```text
+macOS/Linux: ~/.agents/skills/
+Windows:     C:\Users\<your-user>\.agents\skills
+```
+
+Verify on Windows:
+
+```powershell
+dir $HOME\.agents\skills
+```
+
+### Install globally for Claude Code
+
+```bash
+bash scripts/install-claude.sh
+```
+
+Skills will be copied to:
+
+```text
+~/.claude/skills/
+```
+
+### Install inside a specific project for Codex-style agents
+
+#### macOS / Linux / Git Bash
+
+```bash
+cd /path/to/your-project
+bash /path/to/caveman-ai-skills/scripts/install-project-codex.sh
+```
+
+#### Windows PowerShell
+
+```powershell
+cd C:\path\to\your-project
+powershell -ExecutionPolicy Bypass -File D:\caveman-ai-skills\scripts\install-project-codex.ps1
+```
+
+This copies skills into:
+
+```text
+project/.agents/skills/
+```
+
+After installation, restart Codex, Claude Code, or your AI coding tool so it can detect the skills.
+
+For full installation details and troubleshooting, see [QUICKSTART.md](QUICKSTART.md).
+
+---
+
+## Recommended first prompt
+
+After installing, open your project in your AI coding tool and ask:
+
+```text
+Use the project-discovery workflow. Read the project harness first, detect the stack, map the architecture, find build/test commands, and summarize the safest workflow for this repository. Do not modify existing harness files.
+```
+
+---
+
 ## Why this exists
 
 AI coding agents are powerful, but they often start every project like a fresh assistant. You may repeatedly need to explain the same rules:
@@ -80,10 +187,25 @@ The skill format is intentionally simple and portable: each skill lives in a fol
 ```text
 caveman-ai-skills/
   README.md
+  QUICKSTART.md
   CORE_RULES.md
+  SKILLS.md
+  MARKETING_KIT.md
+  TOPICS.md
+  CONTRIBUTING.md
+  SECURITY.md
+  CODE_OF_CONDUCT.md
+  LICENSE
+
   AGENTS.template.md
   CLAUDE.template.md
   CODEX.template.md
+
+  .github/
+    pull_request_template.md
+    ISSUE_TEMPLATE/
+      bug_report.md
+      feature_request.md
 
   skills/
     project-discovery/
@@ -117,68 +239,33 @@ caveman-ai-skills/
 
   scripts/
     install-codex.sh
+    install-codex.ps1
     install-claude.sh
     install-project-codex.sh
+    install-project-codex.ps1
     install-project-claude.sh
 ```
 
 ---
 
-## Installation
+## Included skills
 
-### Global Codex-style installation
+- `project-discovery`
+- `architecture-analyzer`
+- `feature-implementation`
+- `bug-fixer`
+- `database-engineer`
+- `api-engineer`
+- `frontend-engineer`
+- `testing-engineer`
+- `security-reviewer`
+- `performance-reviewer`
+- `devops-deployment`
+- `git-pr-workflow`
+- `documentation-writer`
+- `code-reviewer`
 
-Copy all skills into your global agent skills directory:
-
-```bash
-bash scripts/install-codex.sh
-```
-
-This installs skills into:
-
-```text
-~/.agents/skills/
-```
-
-### Global Claude Code-style installation
-
-```bash
-bash scripts/install-claude.sh
-```
-
-This installs skills into:
-
-```text
-~/.claude/skills/
-```
-
-### Project-level Codex installation
-
-From inside a project repository:
-
-```bash
-bash /path/to/caveman-ai-skills/scripts/install-project-codex.sh
-```
-
-This copies skills into:
-
-```text
-project/.agents/skills/
-```
-
-### Project-level Claude Code installation
-
-From inside a project repository:
-
-```bash
-bash /path/to/caveman-ai-skills/scripts/install-project-claude.sh
-```
-
-This copies skills into:
-
-```text
-project/.claude/skills/
-```
+See [SKILLS.md](SKILLS.md) for details.
 
 ---
 
@@ -255,4 +342,4 @@ AI coding skills, Codex skills, Claude Code skills, agentic development, AI engi
 
 ## License
 
-This project is intended to be shared and reused. Add your preferred license file before public distribution if needed.
+This project is released under the [MIT License](LICENSE).
